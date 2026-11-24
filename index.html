@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>မင်္ဂလာဖိတ်စာ — ကိုကိုမောင် & မမေ </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #fbf8f3;
+--surface: #ffffff;
+--surface-soft: #f5efe6;
+--ink: #241d18;
+--muted: #6c5f55;
+--gold: #b68d40;
+--gold-dark: #8c6825;
+--rose: #9e4747;
+--border: #e6dccb;
+--shadow: 0 18px 45px rgba(36, 29, 24, 0.08);
+--radius: 20px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: 'Noto Sans Myanmar', 'Plus Jakarta Sans', sans-serif;
+background: radial-gradient(circle at top, #fffdf9 0%, var(--bg) 55%, #f2e9dc 100%);
+color: var(--ink);
+line-height: 1.75;
+padding: 24px 16px 64px;
+}
+.container {
+max-width: 920px;
+margin: 0 auto;
+}
+.topbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+flex-wrap: wrap;
+margin-bottom: 20px;
+}
+.badge {
+background: var(--surface);
+border: 1px solid var(--border);
+padding: 8px 14px;
+border-radius: 999px;
+font-size: 0.85rem;
+color: var(--gold-dark);
+font-weight: 600;
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 10px 18px;
+border-radius: 12px;
+border: 1px solid var(--border);
+background: var(--surface);
+color: var(--ink);
+font-family: inherit;
+font-size: 0.92rem;
+font-weight: 600;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--gold); }
+.btn-primary {
+background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+color: #fff;
+border: none;
+}
+.btn-rose {
+background: var(--rose);
+color: #fff;
+border: none;
+}
+.hero {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+padding: 40px 28px;
+text-align: center;
+margin-bottom: 24px;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: "";
+position: absolute;
+inset: 12px;
+border: 1px solid rgba(182, 141, 64, 0.28);
+border-radius: 14px;
+pointer-events: none;
+}
+.subtitle-top {
+letter-spacing: 0.14em;
+text-transform: uppercase;
+font-size: 0.8rem;
+color: var(--gold-dark);
+font-weight: 700;
+margin-bottom: 10px;
+}
+.couple-names {
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 700;
+color: var(--ink);
+margin-bottom: 6px;
+}
+.couple-en {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.5rem;
+font-style: italic;
+color: var(--gold-dark);
+margin-bottom: 16px;
+}
+.hero-msg {
+max-width: 620px;
+margin: 0 auto 24px;
+color: var(--muted);
+font-size: 0.98rem;
+}
+.event-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 14px;
+margin-top: 12px;
+text-align: left;
+}
+.event-box {
+background: var(--surface-soft);
+border: 1px solid var(--border);
+border-radius: 14px;
+padding: 14px 16px;
+}
+.event-label {
+font-size: 0.78rem;
+color: var(--gold-dark);
+font-weight: 700;
+margin-bottom: 4px;
+}
+.card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+padding: 28px;
+margin-bottom: 24px;
+}
+.section-title {
+font-size: 1.3rem;
+font-weight: 700;
+margin-bottom: 6px;
+}
+.section-desc {
+color: var(--muted);
+font-size: 0.92rem;
+margin-bottom: 18px;
+}
+.video-wrap {
+border-radius: 16px;
+overflow: hidden;
+background: #120f0d;
+border: 1px solid var(--border);
+margin-bottom: 14px;
+}
+video {
+width: 100%;
+max-height: 500px;
+display: block;
+background: #000;
+}
+.toolbar {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+align-items: center;
+}
+.two-col {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 24px;
+}
+.qr-card {
+text-align: center;
+background: var(--surface-soft);
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 20px;
+}
+.qr-img {
+width: 220px;
+height: 220px;
+object-fit: contain;
+background: #fff;
+padding: 10px;
+border-radius: 12px;
+border: 1px solid var(--border);
+margin: 0 auto 14px;
+display: block;
+}
+label {
+display: block;
+font-size: 0.88rem;
+font-weight: 600;
+margin-bottom: 6px;
+color: var(--ink);
+}
+input, select, textarea {
+width: 100%;
+padding: 11px 14px;
+border-radius: 12px;
+border: 1px solid var(--border);
+background: #fff;
+font-family: inherit;
+font-size: 0.94rem;
+color: var(--ink);
+margin-bottom: 14px;
+}
+input:focus, select:focus, textarea:focus {
+outline: 2px solid rgba(182, 141, 64, 0.35);
+border-color: var(--gold);
+}
+.wishes-list {
+display: grid;
+gap: 12px;
+margin-top: 16px;
+}
+.wish-item {
+background: var(--surface-soft);
+border-left: 4px solid var(--gold);
+border-radius: 12px;
+padding: 14px 16px;
+}
+.wish-meta {
+font-size: 0.82rem;
+color: var(--gold-dark);
+font-weight: 700;
+margin-bottom: 4px;
+}
+.edit-panel {
+display: none;
+background: #fffdf7;
+border: 2px solid var(--gold);
+border-radius: var(--radius);
+padding: 24px;
+margin-bottom: 24px;
+}
+.edit-panel.open { display: block; }
+.status-msg {
+margin-top: 10px;
+font-size: 0.88rem;
+color: var(--gold-dark);
+font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<div class="badge">💍 DIGITAL WEDDING INVITATION</div>
+<div class="toolbar">
+<button class="btn" id="toggleEditBtn" type="button">✏️ အချက်အလက်ပြင်ဆင်ရန်</button>
+</div>
+</div>
+<!-- Edit Panel -->
+<section class="edit-panel" id="editPanel">
+<h2 class="section-title">ဖိတ်စာအချက်အလက်များ စိတ်ကြိုက်ပြင်ဆင်ရန်</h2>
+<p class="section-desc">အမည်များ၊ နေ့ရက်၊ နေရာနှင့် RSVP Link တို့ကို ပြောင်းလဲပြီး Save နှိပ်နိုင်ပါသည်။</p>
+<div class="two-col">
+<div>
+<label for="inGroom">သတို့သားအမည်</label>
+<input id="inGroom" type="text" value="ကိုကိုမောင်" />
+</div>
+<div>
+<label for="inBride">သတို့သမီးအမည်</label>
+<input id="inBride" type="text" value="မမေ" />
+</div>
+<div>
+<label for="inDate">မင်္ဂလာနေ့ရက်နှင့် အချိန်</label>
+<input id="inDate" type="text" value="Sunday, 25 | 05 | 2025 — 2:00 PM" />
+</div>
+<div>
+<label for="inVenue">မင်္ဂလာခန်းမ /နေရာ</label>
+<input id="inVenue" type="text" value="ရွာသာကြီး ၊ အရူးထောင်" />
+</div>
+<div>
+<label for="inRsvpUrl">RSVP Link (Google Form / Link)</label>
+<input id="inRsvpUrl" type="url" placeholder="https://forms.gle/your-rsvp-link" />
+</div>
+<div>
+<label for="inQrPath">QR Code ပုံဖိုင်လမ်းကြောင်း(.jpg)</label>
+<input id="inQrPath" type="text" value="1000011035.jpg" />
+</div>
+</div>
+<div class="toolbar">
+<button class="btn btn-primary" id="saveDetailsBtn" type="button">💾 သိမ်းဆည်းမည်</button>
+<button class="btn" id="resetDetailsBtn" type="button">↺ မူလအတိုင်း ပြန်ထားမည်</button>
+</div>
+<div class="status-msg" id="editStatus"></div>
+</section>
+<!-- Hero Invitation -->
+<header class="hero">
+<div class="subtitle-top">CORDIALLY INVITE YOU TO THE WEDDING OF</div>
+<h1 class="couple-names"><span id="dispGroom">ကိုကိုမောင်</span> ❤️ <span id="dispBride">မမေ</span></h1>
+<div class="couple-en">Ko Maung &amp; Ma May</div>
+<p class="hero-msg">
+ကျွန်တော် ကျွန်မတို့၏ မင်္ဂလာဧည့်ခံပွဲသို့ ကြွရောက်ချီးမြှင့်ပေးပါရန်လေးစားစွာ ဖိတ်ကြားအပ်ပါသည်။
+</p>
+<div class="event-grid">
+<div class="event-box">
+<div class="event-label">📅 နေ့ရက်နှင့် အချိန်</div>
+<div id="dispDate">Sunday, 04 | 01 | 2027 — 2:00 PM</div>
+</div>
+<div class="event-box">
+<div class="event-label">📍 နေရာ / လိပ်စာ</div>
+<div id="dispVenue">ရွာသာကြီး၊ အရူးထောင်</div>
+</div>
+<div class="event-box">
+<div class="event-label">💌 RSVP &amp; QR</div>
+<div id="dispRsvpHint">အောက်ပါ RSVP မှတစ်ဆင့် ဆက်သွယ်နိုင်ပါသည်</div>
+</div>
+</div>
+</header>
+<!-- Wedding Video Section -->
+<section class="card">
+<h2 class="section-title">🎬 မင်္ဂလာဖိတ်စာဗီဒီယို (Wedding Video)</h2>
+<p class="section-desc">
+ဗီဒီယိုဖိုင်ကို တိုက်ရိုက်ကြည့်ရှုနိုင်သလို <strong>“ကိုယ်ပိုင် Video ရွေးရန် (.mp4)”</strong> မှလည်း မိမိစက်ထဲရှိ ဗီဒီယိုဖိုင်ကို ရွေးချယ်တင်နိုင်ပါသည်။
+</p>
+<div class="video-wrap">
+<video id="weddingVideo" controls playsinline preload="metadata" src="UMg+MaMayWedd.mp4"></video>
+</div>
+<div class="toolbar">
+<label class="btn btn-primary" style="margin-bottom:0;">
+📁 ကိုယ်ပိုင် Video ရွေးရန် (.mp4)
+<input type="file" id="videoFileInput" accept="video/mp4,video/*" hidden />
+</label>
+<span class="status-msg" id="videoStatus" style="margin-top:0;">Default: UMg+MaMayWedd.mp4</span>
+</div>
+</section>
+<!-- QR Code & RSVP Section -->
+<section class="card">
+<div class="two-col">
+<!-- QR Code & .JPG Download -->
+<div class="qr-card">
+<h2 class="section-title">📱 QR Code (.JPG)</h2>
+<p class="section-desc" style="margin-bottom:12px;">
+QR Code ကိုနှိပ်၍ <strong>.JPG</strong> ပုံအဖြစ် Download ဆွဲနိုင်ပါသည်။
+</p>
+<img id="qrImage" class="qr-img" src="1000011035.jpg" alt="မင်္ဂလာလက်ဖွဲ့ရန်" />
+<div class="toolbar" style="justify-content:center; margin-bottom:12px;">
+<label class="btn" style="margin-bottom:0;">
+🖼️ QR ပုံပြောင်းတင်ရန်
+<input type="file" id="qrFileInput" accept="image/*" hidden />
+</label>
+<button class="btn btn-primary" id="downloadQrJpgBtn" type="button">⬇️ QR Download (.JPG)</button>
+</div>
+<div class="status-msg" id="qrStatus"></div>
+</div>
+<!-- RSVP & Wishes -->
+<div>
+<h2 class="section-title">✉️ RSVP &amp; ဆုတောင်းလွှာ</h2>
+<p class="section-desc">
+တက်ရောက်နိုင်ခြင်း ရှိ/မရှိကို အသိပေးပြီး ဆုတောင်းစကားရေးသားပေးပို့နိုင်ပါသည်။
+</p>
+<div id="externalRsvpBox" style="display:none; margin-bottom:16px;">
+<a id="externalRsvpLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-rose" style="width:100%;">
+🔗 RSVP Form Link ဖြင့် အသိပေးရန်
+</a>
+</div>
+<form id="rsvpForm">
+<label for="guestName">ဧည့်သည်အမည်</label>
+<input id="guestName" type="text" placeholder="ဥပမာ - ဦးပန်းသီး + ဒေါ်ငရုပ်" required />
+<label for="guestStatus">တက်ရောက်မည့်အခြေအနေ </label>
+<select id="guestStatus">
+<option value="ကြွရောက်ပါမည် (Attending)">ကြွရောက်ပါမည် (Attending)</option>
+<option value="စိတ်မကောင်းစွာဖြင့် မတက်ရောက်နိုင်ပါ (Unable to Attend)">စိတ်မကောင်းစွာဖြင့် မတက်ရောက်နိုင်ပါ (Unable to Attend)</option>
+<option value="မသေချာသေးပါ (Maybe)">မသေချာသေးပါ (Maybe)</option>
+</select>
+<label for="guestCount">လူဦးရေ (Guests)</label>
+<input id="guestCount" type="number" min="1" max="20" value="1" />
+<label for="guestWish">မင်္ဂလာဆုတောင်းစကား</label>
+<textarea id="guestWish" rows="3" placeholder="မင်္ဂလာမောင်နှံတို့ ရာသက်ပန် ပျော်ရွှင်စွာ ရွှေလက်တွဲနိုင်ကြပါစေ ..."></textarea>
+<button class="btn btn-primary" type="submit" style="width:100%;">💌 RSVP &amp; ဆုတောင်းစကားပေးပို့မည်</button>
+</form>
+<div class="status-msg" id="rsvpStatus"></div>
+</div>
+</div>
+<div class="wishes-list" id="wishesList">
+<div class="wish-item">
+<div class="wish-meta">မိတ်ဆွေများကြွရောက်ပါမည်</div>
+<div>ကိုကိုမောင် နှင့် မမေ တို့၏ မင်္ဂလာအခါသမယမှစ၍ စိတ်နှလုံးအေးချမ်းပြီး သာယာပျော်ရွှင်သော မိသားစုဘဝကို တည်ဆောက်နိုင်ပါစေ။</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+const STORAGE_KEY = "wedding_ko_maung_ma_may_v1";
+const defaultData = {
+groom: "ကိုကိုမောင်",
+bride: "မမေ ",
+date: "Sunday, 04 | 01 | 2027 — 2:00 PM",
+venue: "ရွာသာကြီး.., အရူးထောင်",
+rsvpUrl: "",
+qrSrc: "1000011035.jpg"
+};
+function loadData() {
+try {
+const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+return { ...defaultData, ...(saved || {}) };
+} catch {
+return { ...defaultData };
+}
+}
+function applyData(data) {
+document.getElementById("dispGroom").textContent = data.groom;
+document.getElementById("dispBride").textContent = data.bride;
+document.getElementById("dispDate").textContent = data.date;
+document.getElementById("dispVenue").textContent = data.venue;
+document.getElementById("inGroom").value = data.groom;
+document.getElementById("inBride").value = data.bride;
+document.getElementById("inDate").value = data.date;
+document.getElementById("inVenue").value = data.venue;
+document.getElementById("inRsvpUrl").value = data.rsvpUrl;
+document.getElementById("inQrPath").value = data.qrSrc;
+const qrImg = document.getElementById("qrImage");
+if (data.qrSrc) qrImg.src = data.qrSrc;
+const rsvpBox = document.getElementById("externalRsvpBox");
+const rsvpLink = document.getElementById("externalRsvpLink");
+if (data.rsvpUrl && data.rsvpUrl.trim() !== "") {
+rsvpLink.href = data.rsvpUrl.trim();
+rsvpBox.style.display = "block";
+} else {
+rsvpBox.style.display = "none";
+}
+}
+let currentData = loadData();
+applyData(currentData);
+// Edit panel toggle
+const editPanel = document.getElementById("editPanel");
+document.getElementById("toggleEditBtn").addEventListener("click", () => {
+editPanel.classList.toggle("open");
+});
+// Save details
+document.getElementById("saveDetailsBtn").addEventListener("click", () => {
+currentData = {
+groom: document.getElementById("inGroom").value.trim() || "ကိုကိုမောင်",
+bride: document.getElementById("inBride").value.trim() || "မမေ မေ ",
+date: document.getElementById("inDate").value.trim() || defaultData.date,
+venue: document.getElementById("inVenue").value.trim() || defaultData.venue,
+rsvpUrl: document.getElementById("inRsvpUrl").value.trim(),
+qrSrc: document.getElementById("inQrPath").value.trim() || defaultData.qrSrc
+};
+localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+applyData(currentData);
+document.getElementById("editStatus").textContent = "✅ အချက်အလက်များ သိမ်းဆည်းပြီးပါပြီ။";
+});
+// Reset details
+document.getElementById("resetDetailsBtn").addEventListener("click", () => {
+localStorage.removeItem(STORAGE_KEY);
+currentData = { ...defaultData };
+applyData(currentData);
+document.getElementById("editStatus").textContent = "↺ မူလအချက်အလက်များသို့ ပြန်ထားပြီးပါပြီ။";
+});
+// Local video selection
+document.getElementById("videoFileInput").addEventListener("change", (e) => {
+const file = e.target.files?.[0];
+if (!file) return;
+const url = URL.createObjectURL(file);
+const videoEl = document.getElementById("weddingVideo");
+videoEl.src = url;
+videoEl.play().catch(() => {});
+document.getElementById("videoStatus").textContent = `ရွေးချယ်ထားသောဗီဒီယို: ${file.name}`;
+});
+// Local QR image selection
+document.getElementById("qrFileInput").addEventListener("change", (e) => {
+const file = e.target.files?.[0];
+if (!file) return;
+const reader = new FileReader();
+reader.onload = () => {
+currentData.qrSrc = reader.result;
+document.getElementById("qrImage").src = reader.result;
+document.getElementById("qrStatus").textContent = `QR ပုံကို ပြောင်းလဲပြီးပါပြီ (${file.name})`;
+};
+reader.readAsDataURL(file);
+});
+// Download QR code as .JPG
+document.getElementById("downloadQrJpgBtn").addEventListener("click", () => {
+const img = document.getElementById("qrImage");
+const statusEl = document.getElementById("qrStatus");
+try {
+const canvas = document.createElement("canvas");
+const size = 800;
+canvas.width = size;
+canvas.height = size;
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, size, size);
+const pad = 60;
+ctx.drawImage(img, pad, pad, size - pad * 2, size - pad * 2);
+const jpgUrl = canvas.toDataURL("image/jpeg", 0.95);
+const a = document.createElement("a");
+a.href = jpgUrl;
+a.download = "wedding-qr-ko-maung-ma-may.jpg";
+document.body.appendChild(a);
+a.click();
+a.remove();
+statusEl.textContent = "✅ wedding-qr-ko-maung-ma-may.jpg အဖြစ် Download ဆွဲပြီးပါပြီ။";
+} catch (err) {
+statusEl.textContent = "⚠️ Browser security ကြောင့် local file ကို တိုက်ရိုက် export မရပါက QR ပုံကို Right-click နှိပ်၍ Save image as ဖြင့် သိမ်းဆည်းနိုင်ပါသည်။";
+}
+});
+// RSVP & Wishes form
+document.getElementById("rsvpForm").addEventListener("submit", (e) => {
+e.preventDefault();
+const name = document.getElementById("guestName").value.trim();
+const status = document.getElementById("guestStatus").value;
+const count = document.getElementById("guestCount").value || "1";
+const wish = document.getElementById("guestWish").value.trim() || "မင်္ဂလာအခါသမယတွင် ပျော်ရွှင်ချမ်းမြေ့ကြပါစေ ။";
+if (!name) return;
+const list = document.getElementById("wishesList");
+const item = document.createElement("div");
+item.className = "wish-item";
+const meta = document.createElement("div");
+meta.className = "wish-meta";
+meta.textContent = `${name} • ${status} (${count} ဦး)`;
+const body = document.createElement("div");
+body.textContent = wish;
+item.appendChild(meta);
+item.appendChild(body);
+list.prepend(item);
+document.getElementById("rsvpStatus").textContent = "✅ သင်၏ RSVP နှင့် ဆုတောင်းစကားကို ထည့်သွင်းပြီးပါပြီ။";
+e.target.reset();
+});
+</script>
+</body>
+</html>
